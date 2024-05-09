@@ -10,11 +10,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-sealed class Status {
-    object Loading : Status()
-    data class Error(val message: String) : Status()
-    data class Success(val result: SomeData) : Status()
-}
+data class ViewState(val buttonIsLoading: Boolean)
 
 open class ValueViewModel : ViewModel(){
    private var _state = MutableStateFlow(ViewState(true))
